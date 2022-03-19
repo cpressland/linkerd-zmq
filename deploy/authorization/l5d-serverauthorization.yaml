@@ -1,0 +1,15 @@
+---
+apiVersion: policy.linkerd.io/v1beta1
+kind: ServerAuthorization
+metadata:
+  namespace: default
+  name: zmq-server
+spec:
+  server:
+    selector:
+      matchLabels:
+        app: zmq-server
+  client:
+    meshTLS:
+      serviceAccounts:
+        - name: zmq-client

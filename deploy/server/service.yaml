@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zmq-server
+  namespace: default
+  labels:
+    app: zmq-server
+spec:
+  ports:
+    - protocol: TCP
+      port: 5555
+  selector:
+    app: zmq-server

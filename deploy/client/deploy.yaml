@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zmq-client
+  namespace: default
+  labels:
+    app: zmq-client
+spec:
+  selector:
+    matchLabels:
+      app: zmq-client
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+        kubectl.kubernetes.io/default-container: app
+      labels:
+        app: zmq-client
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/cpressland/linkerd_zmq:latest
+          args:
+            - client
+          env:
+            - name: SERVER_ADDRESS
+              value: zmq-server
+          ports:
+            - containerPort: 5555
+              name: zmq
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+      serviceAccountName: zmq-client
