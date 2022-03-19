@@ -4,5 +4,6 @@ resources:
   - serviceaccount.yaml
   - service.yaml
   - deploy.yaml
+  - l5d-server.yaml
 
 namespace: zmq-test

@@ -9,4 +9,4 @@ spec:
     matchLabels:
       app: zmq-server
   port: zmq
-  proxyProtocol: unknown
+  proxyProtocol: TLS

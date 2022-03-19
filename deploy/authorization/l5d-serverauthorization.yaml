@@ -6,9 +6,7 @@ metadata:
   name: zmq-server
 spec:
   server:
-    selector:
-      matchLabels:
-        app: zmq-server
+    name: zmq-server
   client:
     meshTLS:
       serviceAccounts:

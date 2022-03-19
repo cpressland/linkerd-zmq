@@ -1,2 +1,4 @@
 resources:
   - l5d-serverauthorization.yaml
+
+namespace: zmq-test
